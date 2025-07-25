@@ -6,6 +6,8 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 import os
+from email.mime.base import MIMEBase   # This imports the MIMEBase class
+from email import encoders             # This imports the encoders module
 print(os.urandom(24).hex())
 
 # Load environment variables from .env
@@ -172,13 +174,43 @@ Message: {message}
         user_msg['To'] = email # Send auto-response to the client's email
         user_msg['Subject'] = 'We have received your message'
         user_body = f"""Dear {name},
+Thank you for reaching out to Novastruct.
 
-Thank you for contacting us. We’ve received your message and will get back to you shortly.
+We have received your message and our team will respond shortly. Meanwhile, please find our company brochure attached, outlining the services we offer.
 
-Best regards,
-Novastruct Team
+📍 **Location:** Eldama ravine, Kenya 
+equity plaza 1st floor, office 20 
+📞 For urgent inquiries, feel free to reach out via our contact page or call directly.
+#novastruct #construction #building #kenya
+
+We appreciate your interest in working with us.
+
+Warm regards,  
+**Novastruct Team**
 """
         user_msg.attach(MIMEText(user_body, 'plain'))
+
+        # --- DOCX Attachment Logic Added Here ---
+        # Define the path to your DOCX file.
+        # Make sure this path is correct relative to where your Flask app runs,
+        # or use an absolute path.
+        # Example: if your docx file is in a 'static' folder next to your app.py
+        docx_filepath = 'static/nova.docx'
+
+        try:
+            with open(docx_filepath, 'rb') as f:
+                attach = MIMEBase('application', 'octet-stream') # 'octet-stream' is suitable for binary files
+                attach.set_payload(f.read())
+                encoders.encode_base64(attach) # Encode the payload for email
+                attach.add_header('Content-Disposition', 'attachment', filename=os.path.basename(docx_filepath))
+                user_msg.attach(attach) # Attach the file to the user's email
+        except FileNotFoundError:
+            flash(f'Error: The attachment file "{os.path.basename(docx_filepath)}" was not found.', 'error')
+            # You might want to log this error for debugging: app.logger.error(f'Attachment file not found: {docx_filepath}')
+        except Exception as e:
+            flash(f'Error attaching file: {str(e)}', 'error')
+            # app.logger.error(f'Error attaching DOCX file: {e}')
+        # --- End DOCX Attachment Logic ---
 
         try:
             # Check if email credentials are available
@@ -198,52 +230,6 @@ Novastruct Team
         return redirect(url_for('contact'))
 
     return render_template('contact.html')
-
-# Placeholder routes from your base.html and previous discussions
-# Add these if they don't exist in your app.py
-@app.route('/tours')
-def tours():
-    # This might be construction projects or services in your context, adjust as needed
-    return render_template('tours.html') # Or redirect to projects/services if 'tours' isn't real
-
-@app.route('/coming_soon')
-def coming_soon():
-    return render_template('coming_soon.html')
-
-@app.route('/done_tours')
-def done_tours():
-    return render_template('done_tours.html') # Or redirect to projects/memories if 'done_tours' isn't real
-
-@app.route('/memories')
-def memories():
-    return render_template('memories.html')
-
-# Assuming 'about_us' is the actual route name used in the footer/navbar dropdown
-@app.route('/about_us')
-def about_us():
-    # This should probably just call the existing 'about' route
-    return redirect(url_for('about'))
-
-# Assuming 'admin_dashboard' is an existing route (e.g., Flask-Admin)
-@app.route('/admin_dashboard')
-def admin_dashboard():
-    # You'll need to implement your admin dashboard logic here
-    flash('Admin dashboard access requires authentication.', 'info')
-    return redirect(url_for('login')) # Or to your actual admin login/dashboard
-
-# Placeholder for logout, register, login if not provided
-@app.route('/logout')
-def logout():
-    flash('You have been logged out.', 'info')
-    return redirect(url_for('home')) # Or index
-
-@app.route('/register')
-def register():
-    return render_template('register.html')
-
-@app.route('/login')
-def login():
-    return render_template('login.html')
 
 
 if __name__ == '__main__':
