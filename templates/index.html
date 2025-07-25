@@ -1,0 +1,182 @@
+ {% extends "base.html" %} {% block title %}Novastruct Construction - Professional Building Services{% endblock %} {% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-background">
+        <img src="https://i.pinimg.com/736x/8e/49/ba/8e49ba7b0f8dd2485a6b72828427115e.jpg" alt="Modern Construction">
+        <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+        <div class="hero-container">
+            <h1 class="hero-title">Building Excellence<br>Building your dreams</h1>
+            <p class="hero-subtitle">From dust to design-kila siku najenga ndoto si tu nyumba. Tuko site , tukiweka kazi chini kwa bidii.#Novastruct #Ground up #Bulding legacy</p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('contact') }}" class="btn btn-primary">Get Free Quote</a>
+                <a href="{{ url_for('projects') }}" class="btn btn-secondary">View Our Work</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Customer Support</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Overview -->
+<section class="services-overview">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Construction Services</h2>
+            <p>From concept to completion, we deliver exceptional construction solutions tailored to your needs.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>House & Mansion Construction</h3>
+                <p>Custom homes and residential projects built with precision, quality, and attention to detail.</p>
+                <a href="{{ url_for('services') }}" class="service-link">Learn More →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Commercial Projects</h3>
+                <p>Office buildings, retail spaces, and commercial facilities designed for business success.</p>
+                <a href="{{ url_for('services') }}" class="service-link">Learn More →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔨</div>
+                <h3>Renovations</h3>
+                <p>Transform your existing space with our comprehensive renovation and remodeling expertise.</p>
+                <a href="{{ url_for('services') }}" class="service-link">Learn More →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🌉</div>
+                <h3>Infrastructure Development</h3>
+                <p>Large-scale infrastructure projects including roads, bridges, and municipal developments.</p>
+                <a href="{{ url_for('services') }}" class="service-link">Learn More →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects -->
+<section class="featured-projects">
+    <div class="container">
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+            <p>Showcasing our commitment to excellence through successful project deliveries.</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://ub.co.ke/wp-content/uploads/2019/11/crest-house-ujenzi-143-bora-build-in-kenya-from-diaspora-podcity-720x720.jpg" alt="Sunset Ridge Residential Complex">
+                </div>
+                <div class="project-content">
+                    <div class="project-category">Residential</div>
+                    <h3>mansion & Home </h3>
+                    <p>Modern residential complex featuring sustainable design and energy-efficient systems.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://probuilderskenya.com/wp-content/uploads/2025/06/Picture8-1-1024x768-2.jpg" alt="Downtown Business Center">
+                </div>
+                <div class="project-content">
+                    <div class="project-category">Commercial</div>
+                    <h3>Downtown Business Center</h3>
+                    <p>10-story office building with state-of-the-art facilities and modern architectural design.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://probuilderskenya.com/wp-content/uploads/2025/06/Surface-dressing-Kajiado-Imaroro-1-1200x600-1.jpg" alt="City Bridge Infrastructure">
+                </div>
+                <div class="project-content">
+                    <div class="project-category">Infrastructure</div>
+                    <h3>City Bridge Infrastructure</h3>
+                    <p>Modern bridge connecting two major city districts with innovative engineering solutions.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-footer">
+            <a href="{{ url_for('projects') }}" class="btn btn-outline">View All Projects</a>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="why-choose-us">
+    <div class="container">
+        <div class="section-header">
+            <h2>Why Choose Novastruct?</h2>
+            <p>Experience the difference of working with a trusted construction partner.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <h3>Licensed & Insured</h3>
+                <p>Fully licensed and insured for your protection and peace of mind.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">⏰</div>
+                <h3>On-Time Delivery</h3>
+                <p>We respect your timeline and consistently deliver projects on schedule.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">💰</div>
+                <h3>Transparent Pricing</h3>
+                <p>No hidden costs or surprises. Clear, upfront pricing for all our services.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">🏆</div>
+                <h3>Quality Guarantee</h3>
+                <p>We stand behind our work with comprehensive warranties and quality assurance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Start Your Construction Project?</h2>
+            <p>Contact us today for a free consultation and detailed project estimate.</p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('contact') }}" class="btn btn-primary">Get Free Quote</a>
+                <a href="tel:+254710327993" class="btn btn-outline">Call (254) 710327993</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

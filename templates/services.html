@@ -1,0 +1,98 @@
+ {% extends "base.html" %} {% block title %}Construction Services - Novastruct{% endblock %} {% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>Our Construction Services</h1>
+        <p>Comprehensive construction solutions for residential, commercial, and infrastructure projects.</p>
+    </div>
+</section>
+
+<!-- Services Detail -->
+<section class="services-detail">
+    <div class="container">
+        {% for service in services %}
+        <div class="service-detail">
+            <div class="service-content">
+                <h2>{{ service.title }}</h2>
+                <p class="service-description">{{ service.description }}</p>
+
+                <div class="service-features">
+                    <h3>What We Offer:</h3>
+                    <ul>
+                        {% for feature in service.features %}
+                        <li>{{ feature }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <a href="{{ url_for('contact') }}" class="btn btn-primary">Get Quote</a>
+            </div>
+
+            <div class="service-image">
+                {% if loop.index == 1 %}
+                <img src="https://bomayangu.go.ke/media/projects/alego-usonga-affordable-housing-project/images/thumb/image_3.jpg" alt="Residential Construction"> {% elif loop.index == 2 %}
+                <img src="https://probuilderskenya.com/wp-content/uploads/2025/06/web1-300x187-1.jpg" alt="Commercial Projects"> {% elif loop.index == 3 %}
+                <img src="https://i.pinimg.com/1200x/ea/4f/d5/ea4fd57a0579f426ffdc0d6b00b13d7e.jpg" alt="Renovations"> {% else %}
+                <img src="https://probuilderskenya.com/wp-content/uploads/2025/06/DJI_0037-1160x653.jpg" alt="Infrastructure Development"> {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="process">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Construction Process</h2>
+            <p>A systematic approach to ensure quality results and client satisfaction.</p>
+        </div>
+
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Consultation</h3>
+                <p>Initial meeting to understand your vision, requirements, and budget.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Planning & Design</h3>
+                <p>Detailed planning, architectural design, and project timeline development.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Permits & Approvals</h3>
+                <p>Handling all necessary permits, inspections, and regulatory approvals.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Construction</h3>
+                <p>Professional construction with regular updates and quality checkpoints.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <h3>Completion</h3>
+                <p>Final inspection, walkthrough, and handover of your completed project.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Need Professional Construction Services?</h2>
+            <p>Contact us today to discuss your project requirements and get a detailed estimate.</p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('contact') }}" class="btn btn-primary">Request Consultation</a>
+                <a href="{{ url_for('projects') }}" class="btn btn-outline">View Our Portfolio</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

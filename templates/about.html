@@ -1,0 +1,136 @@
+ {% extends "base.html" %} {% block title %}About Us - Novastruct{% endblock %} {% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>About Novastruct</h1>
+        <p>Building excellence with integrity, innovation, and unmatched craftsmanship since 2024.</p>
+    </div>
+</section>
+
+<!-- Company Story -->
+<section class="company-story">
+    <div class="container">
+        <div class="story-content">
+            <div class="story-text">
+                <h2>Our Story</h2>
+                <p>Founded in 2024, Novastruct has grown from a small local contractor to one of the region's most trusted construction companies. Our journey began with a simple vision: to deliver exceptional construction services that exceed client expectations
+                    while maintaining the highest standards of integrity and craftsmanship.</p>
+
+                <p>Over the past 2+ years, we have successfully completed many projects ranging from custom homes and commercial buildings to large-scale infrastructure developments. Our commitment to quality, innovation, and customer satisfaction has earned
+                    us a reputation as a leader in the construction industry.</p>
+
+                <p>Today, Novastruct continues to build on our legacy of excellence, embracing new technologies and sustainable practices while staying true to our core values of reliability, transparency, and superior workmanship.</p>
+            </div>
+
+            <div class="story-image">
+                <img src="https://i.pinimg.com/736x/13/b5/7f/13b57f9a40f9430333926744a84d91c4.jpg" alt="Novastruct team">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission & Values -->
+<section class="mission-values">
+    <div class="container">
+        <div class="values-grid">
+            <div class="value-item">
+                <h3>Our Mission</h3>
+                <p>To provide exceptional construction services that transform visions into reality while building lasting relationships with our clients, partners, and communities.</p>
+            </div>
+
+            <div class="value-item">
+                <h3>Our Vision</h3>
+                <p>To be the premier construction company recognized for innovation, quality, and sustainable building practices that shape the future of our communities.</p>
+            </div>
+
+            <div class="value-item">
+                <h3>Our Values</h3>
+                <ul>
+                    <li>Integrity in all our dealings</li>
+                    <li>Excellence in craftsmanship</li>
+                    <li>Innovation in solutions</li>
+                    <li>Respect for our clients and team</li>
+                    <li>Commitment to sustainability</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="team">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Leadership Team</h2>
+            <p>Meet the experienced professionals leading Novastruct to continued success.</p>
+        </div>
+
+        <div class="team-grid">
+            {% for member in team %}
+            <div class="team-member">
+                <div class="member-photo">
+
+                    <div class="member-avatar">{{ member.name[0] }}</div>
+                </div>
+                <div class="member-info">
+                    <h3>{{ member.name }}</h3>
+                    <div class="member-position">{{ member.position }}</div>
+                    <div class="member-experience">{{ member.experience }}</div>
+                    <p>{{ member.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Certifications & Awards -->
+<section class="certifications">
+    <div class="container">
+        <div class="section-header">
+            <h2>Certifications & Awards</h2>
+            <p>Recognition of our commitment to excellence and industry leadership.</p>
+        </div>
+
+        <div class="cert-grid">
+            <div class="cert-item">
+                <h3>Licensed & Bonded</h3>
+                <p>Fully licensed general contractor with comprehensive insurance coverage.</p>
+                <div class="cert-number">License #BC-123456</div>
+            </div>
+
+            <div class="cert-item">
+                <h3>OSHA Certified</h3>
+                <p>Committed to maintaining the highest safety standards on all job sites.</p>
+                <div class="cert-number">Safety First Priority</div>
+            </div>
+
+            <div class="cert-item">
+                <h3>Industry Awards</h3>
+                <p>Recognized for excellence in construction and customer satisfaction.</p>
+                <div class="cert-number">2023 Excellence Award</div>
+            </div>
+
+            <div class="cert-item">
+                <h3>Environmental Stewardship</h3>
+                <p>Committed to sustainable building practices and environmental responsibility.</p>
+                <div class="cert-number">Green Building Certified</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Partner with Experience You Can Trust</h2>
+            <p>Discover how our expertise and commitment can bring your construction vision to life.</p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('contact') }}" class="btn btn-primary">Get in Touch</a>
+                <a href="{{ url_for('projects') }}" class="btn btn-outline">View Our Work</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

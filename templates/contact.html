@@ -1,0 +1,149 @@
+ {% extends "base.html" %} {% block title %}Contact Us - Novastruct{% endblock %} {% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>Contact Novastruct</h1>
+        <p>Ready to start your construction project? Get in touch with our expert team today.</p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact">
+    <div class="container">
+        <div class="contact-content">
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2>Get a Free Quote</h2>
+                <p>Tell us about your project and we'll provide a detailed estimate within 24 hours.</p>
+
+                <form method="POST" action="{{ url_for('contact') }}" class="form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="residential">Residential Construction</option>
+                                <option value="commercial">Commercial Projects</option>
+                                <option value="renovation">Renovations</option>
+                                <option value="infrastructure">Infrastructure Development</option>
+                                <option value="consultation">General Consultation</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Project Details *</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Please describe your project, timeline, and any specific requirements..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>We're here to help with all your construction needs. Contact us using any of the methods below.</p>
+
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p><a href="tel:+254710327993">(254) 0710327993</a></p>
+                            <small>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 4:00 PM</small>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p><a href="mailto:info@novastruct.com">info@novastruct.com</a></p>
+                            <small>We respond to all emails within 4 hours during business hours</small>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Office Location</h3>
+                            <p>Posta Road<br> Equity Bank Eldama Ravine Kenya 3rd floor unit 20, PO BOX 247-20103 </p>
+                            <small>Visit our office and meet our team</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="emergency-contact">
+                    <h3>Emergency Service</h3>
+                    <p>For construction emergencies, call our 24/7 hotline:</p>
+                    <a href="tel:+254710327993" class="emergency-number">(254) 0710327993</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Service Areas -->
+<section class="service-areas">
+    <div class="container">
+        <div class="section-header">
+            <h2>Service Areas</h2>
+            <p>We proudly serve the following areas with our professional construction services.</p>
+        </div>
+
+        <div class="areas-grid">
+            <div class="area-item">
+                <h3>Metropolitan Area</h3>
+                <ul>
+                    <li>Builder City</li>
+                    <li>Construction Valley</li>
+                    <li>Architect Heights</li>
+                    <li>Engineer Plains</li>
+                </ul>
+            </div>
+
+            <div class="area-item">
+                <h3>Suburban Communities</h3>
+                <ul>
+                    <li>Residential Park</li>
+                    <li>Family Grove</li>
+                    <li>Quiet Hills</li>
+                    <li>Green Meadows</li>
+                </ul>
+            </div>
+
+            <div class="area-item">
+                <h3>Commercial Districts</h3>
+                <ul>
+                    <li>Business Center</li>
+                    <li>Industrial Park</li>
+                    <li>Trade Plaza</li>
+                    <li>Corporate Square</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="areas-note">
+            <p><strong>Note:</strong> We also consider projects outside our standard service areas. Contact us to discuss your specific location and project requirements.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
